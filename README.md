@@ -3,7 +3,8 @@
 ##### Table of Contents  
 [Intro](#intro)  
 [Results](#results)  
-[Method](#method)  
+[Method](#method)
+[Refs](#refs)
 
 
 <a name="intro"/>
@@ -72,7 +73,7 @@ smina -r proteinH.pdbqt -l ligands3d.sdf --autobox_ligand AQD_ligand.pdb -o liga
 smina -r proteinH.pdbqt -l ligands3d_gypsum.sdf --autobox_ligand AQD_ligand.pdb -o ligands3d_gypsum_docked.sdf
 ```
 
-<a name="method"/>
+<a name="refs"/>
 
 ## Refs
 [1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9) Lyu et al.
