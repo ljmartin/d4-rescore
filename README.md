@@ -18,7 +18,7 @@ In short, feature map vectors out-perform any of the re-scoring methods, followe
 
 ROC:
 
-![roc](./figs/rocs.svg)
+![roc](./figs/rocs.svg | width=100)
 
 Early enrichment metrics:
 
@@ -43,9 +43,11 @@ Early enrichment metrics:
 1. read and embed ligands
 
 See `1-read_and_embed_ligands.ipynb`. This step takes the SMILES codes given in the supplementary of Lyu et al and prepares them for docking in two ways: the first is directly embedding each ligand in 3D using RDKit's EKTDG method, the second is enumerating tautomers/charge states/enantiomers with the Durrant lab's Gypsum-DL, which also embeds into 3D.
+
 2. prepare the protein for docking
 
 This workflow uses the script available at https://github.com/ljmartin/pdb_to_pdbqt . The resulting PDB was converted to `.pdbqt` format with `obabel proteinH.pdb -xr -O proteinH.pdbqt`
+
 3. dock!
 
 Docking was run with Smina:
