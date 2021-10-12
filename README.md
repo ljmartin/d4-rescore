@@ -18,14 +18,16 @@ In [1], Lyu et al dock Enamine REAL at the D4 receptor. They selected ~550 ligan
 
 If re-scoring algorithms can accurately rank the actives before the inactives, they are unambiguously useful for re-scoring. If they do not, it indicates they are either not useful, or may suffer from high false-positive rate (like docking). In the high FPR case, they still may be useful but they just happened to fail on these ligands. 
 
-[1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
+
 
 <a name="results"/>
 
 ## results
-The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points.
+The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points [2].
 
-In short, feature map vectors out-perform any of the re-scoring methods, followed by vanilla Smina score and/or PLECScore, which are slightly better than random depending on what metric you prefer. NNScore, RFScore, and RF-Score-VS, do not appear to recognise actives at a higher rate than inactives. 
+In short, feature map vectors out-perform any of the re-scoring methods, followed by vanilla Smina score and/or PLECScore, which are slightly better than random depending on what metric you prefer. NNScore, RFScore, and RF-Score-VS, do not appear to recognise actives at a higher rate than inactives.
+
+This largely agrees with [3] - their GRiM technique is analogous to feature map vectors, and they show that learning from a crystallized ligand outperforms re-scoring techniques. What if there's no ligand available? Well, docking still performs better. 
 
 ROC:
 
@@ -47,7 +49,7 @@ Early enrichment metrics:
 <img src="./figs/early_enrichment_gypsum.png" width="450">
 
 
-[2] [True Accuracy of Fast Scoring Functions to Predict High-Throughput Screening Data from Docking Poses: The Simpler the Better](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.1c00292)
+
 
 <a name="method"/>
 
@@ -69,3 +71,10 @@ cd ./data/
 smina -r proteinH.pdbqt -l ligands3d.sdf --autobox_ligand AQD_ligand.pdb -o ligands3d_docked.sdf
 smina -r proteinH.pdbqt -l ligands3d_gypsum.sdf --autobox_ligand AQD_ligand.pdb -o ligands3d_gypsum_docked.sdf
 ```
+
+<a name="method"/>
+
+## Refs
+[1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9) Lyu et al.
+[2] [Feature-map vectors: a new class of informative descriptors for computational drug discovery](https://link.springer.com/article/10.1007/s10822-006-9085-8), Landrum et al.
+[3] [True Accuracy of Fast Scoring Functions to Predict High-Throughput Screening Data from Docking Poses: The Simpler the Better](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.1c00292) Tran-Nguyen et al.
