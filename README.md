@@ -21,6 +21,7 @@ If re-scoring algorithms can accurately rank the actives before the inactives, t
 [1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
 
 <a name="results"/>
+
 ## results
 The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points.
 
@@ -49,6 +50,7 @@ Early enrichment metrics:
 [2] [True Accuracy of Fast Scoring Functions to Predict High-Throughput Screening Data from Docking Poses: The Simpler the Better](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.1c00292)
 
 <a name="method"/>
+
 ## steps to reproduce:
 
 1. read and embed ligands
