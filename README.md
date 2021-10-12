@@ -18,7 +18,7 @@ In short, feature map vectors out-perform any of the re-scoring methods, followe
 
 ROC:
 
-![roc](./figs/rocs.svg | width=100)
+<img src="./figs/rocs.svg" width="200">
 
 Early enrichment metrics:
 
