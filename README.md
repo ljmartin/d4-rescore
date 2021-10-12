@@ -1,4 +1,12 @@
 # d4-rescore
+
+##### Table of Contents  
+[Intro](#intro)  
+[Results](#results)
+[Method](#method)
+
+
+<a name="intro"/>
 ## Intro
 In [1], Lyu et al dock Enamine REAL at the D4 receptor. They selected ~550 ligands at random from a range of high- and low-scoring buckets, and test these _in vitro_ at 10µM. This represents a perfect test-case for re-scoring algorithms:
 - The actives all bind to the same binding site, and even the same conformation (with reasonably high confidence)
@@ -11,6 +19,7 @@ If re-scoring algorithms can accurately rank the actives before the inactives, t
 
 [1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
 
+<a name="results"/>
 ## results
 The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points.
 
@@ -18,7 +27,7 @@ In short, feature map vectors out-perform any of the re-scoring methods, followe
 
 ROC:
 
-<img src="./figs/rocs.svg" width="450">
+<img src="./figs/rocs.svg" width="550">
 
 Early enrichment metrics:
 
@@ -29,15 +38,16 @@ After 'preparing' the ligands, i.e. enumerating tautomers, charge states, and en
 
 ROC:
 
-![roc_gypsum](./figs/rocs_gypsum.svg)
+<img src="./figs/rocs_gypsum.svg" width="550">
 
 Early enrichment metrics:
 
-![early_gypsum](./figs/early_enrichment_gypsum.png)
+<img src="./figs/early_enrichment_gypsum.png" width="450">
 
 
 [2] [True Accuracy of Fast Scoring Functions to Predict High-Throughput Screening Data from Docking Poses: The Simpler the Better](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.1c00292)
 
+<a name="method"/>
 ## steps to reproduce:
 
 1. read and embed ligands
