@@ -7,6 +7,7 @@
 
 
 <a name="intro"/>
+
 ## Intro
 In [1], Lyu et al dock Enamine REAL at the D4 receptor. They selected ~550 ligands at random from a range of high- and low-scoring buckets, and test these _in vitro_ at 10µM. This represents a perfect test-case for re-scoring algorithms:
 - The actives all bind to the same binding site, and even the same conformation (with reasonably high confidence)
