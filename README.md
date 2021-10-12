@@ -3,8 +3,8 @@
 ##### Table of Contents  
 [Intro](#intro)  
 [Results](#results)  
-[Method](#method)
-[Refs](#refs)
+[Method](#method)  
+[Refs](#refs)  
 
 
 <a name="intro"/>
@@ -71,6 +71,18 @@ Docking was run with Smina:
 cd ./data/
 smina -r proteinH.pdbqt -l ligands3d.sdf --autobox_ligand AQD_ligand.pdb -o ligands3d_docked.sdf
 smina -r proteinH.pdbqt -l ligands3d_gypsum.sdf --autobox_ligand AQD_ligand.pdb -o ligands3d_gypsum_docked.sdf
+```
+
+4. re-score and evaluate
+
+See `4-rescore_docked_mols.ipynb`, which uses ODDT and the RDKit to re-score all the docked poses, and calculate early-enrichment metrics like Robust Initial Enrichment, log(area under the ROC), BEDROC, and average precision. 
+
+RF-Score-VS is not available via ODDT, but it _is_ available as a binary from []
+
+re-scoring command for RF-Score-VS is:
+```
+/path-to-binary/rf-score-vs_v1/rf-score-vs --receptor ./proteinH.pdb ./ligands3d_docked.sdf -O ./rfscorevs.csv
+/path-to-binary/rf-score-vs_v1/rf-score-vs --receptor ./proteinH.pdb ./ligands3d_gypsum_docked.sdf -O ./rfscorevs_gypsum.csv
 ```
 
 <a name="refs"/>
