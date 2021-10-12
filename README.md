@@ -1,16 +1,21 @@
 # d4-rescore
-## intro
+## Intro
 In [1], Lyu et al dock Enamine REAL at the D4 receptor. They selected ~550 ligands at random from a range of high- and low-scoring buckets, and test these _in vitro_ at 10µM. This represents a perfect test-case for re-scoring algorithms:
-- The actives all bind to the same binding site (with reasonably high confidence)
+- The actives all bind to the same binding site, and even the same conformation (with reasonably high confidence)
+- The inactive labels are experimentally determined
 - The actives do not arise from congeneric series and are not based on prior knowledge, as is often the case in ChEMBL
-- The inactive labels have experimental evidence
 - The setting is a real use-case - i.e. re-ranking docked structures to identify hits
 - The receptor is an 'easy' case: a small, enclosed, polar binding site
 
 If re-scoring algorithms can accurately rank the actives before the inactives, they are unambiguously useful for re-scoring. If they do not, it indicates they are either not useful, or may suffer from high false-positive rate (like docking). In the high FPR case, they still may be useful but they just happened to fail on these ligands. 
 
+[1] [Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
 
 ## results
+The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points.
+
+In short, feature map vectors strongly out-perform any of the re-scoring methods, followed by vanilla Smina score and/or PLECScore. . 
+
 ROC:
 
 ![roc](./figs/rocs.svg)
@@ -20,7 +25,18 @@ Early enrichment metrics:
 ![early](./figs/early_enrichment.png)
 
 
-[Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
+After 'preparing' the ligands, i.e. enumerating tautomers, charge states, and enantiomers, there is little change:
+
+ROC:
+
+![roc_gypsum](./figs/rocs_gypsum.svg)
+
+Early enrichment metrics:
+
+![early_gypsum](./figs/early_enrichment_gypsum.png)
+
+
+[2] [True Accuracy of Fast Scoring Functions to Predict High-Throughput Screening Data from Docking Poses: The Simpler the Better](https://pubs.acs.org/doi/abs/10.1021/acs.jcim.1c00292)
 
 ## steps to reproduce:
 
