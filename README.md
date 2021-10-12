@@ -14,7 +14,7 @@ If re-scoring algorithms can accurately rank the actives before the inactives, t
 ## results
 The tested re-scoring algorithms were:  PLECScore, RFScore, and NNScore (BINANA features), which are available in ODDT, as well as RF-Score-VS-v1. With a nod to the Rognan lab's paper showing re-scoring algorithms are outperformed by scoring similarity to a known ligand, I also tested RDKit's 'feature map vectors', a similarity score between pharmacophoric points.
 
-In short, feature map vectors strongly out-perform any of the re-scoring methods, followed by vanilla Smina score and/or PLECScore. . 
+In short, feature map vectors out-perform any of the re-scoring methods, followed by vanilla Smina score and/or PLECScore, which are slightly better than random depending on what metric you prefer. NNScore, RFScore, and RF-Score-VS, do not appear to recognise actives at a higher rate than inactives. 
 
 ROC:
 
@@ -41,10 +41,13 @@ Early enrichment metrics:
 ## steps to reproduce:
 
 1. read and embed ligands
+
 See `1-read_and_embed_ligands.ipynb`. This step takes the SMILES codes given in the supplementary of Lyu et al and prepares them for docking in two ways: the first is directly embedding each ligand in 3D using RDKit's EKTDG method, the second is enumerating tautomers/charge states/enantiomers with the Durrant lab's Gypsum-DL, which also embeds into 3D.
 2. prepare the protein for docking
+
 This workflow uses the script available at https://github.com/ljmartin/pdb_to_pdbqt . The resulting PDB was converted to `.pdbqt` format with `obabel proteinH.pdb -xr -O proteinH.pdbqt`
 3. dock!
+
 Docking was run with Smina:
 ```
 cd ./data/
