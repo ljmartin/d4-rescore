@@ -18,11 +18,11 @@ In short, feature map vectors out-perform any of the re-scoring methods, followe
 
 ROC:
 
-<img src="./figs/rocs.svg" width="200">
+<img src="./figs/rocs.svg" width="450">
 
 Early enrichment metrics:
 
-![early](./figs/early_enrichment.png)
+<img src="./figs/early_enrichment.png" width="450">
 
 
 After 'preparing' the ligands, i.e. enumerating tautomers, charge states, and enantiomers, there is little change:
