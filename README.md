@@ -27,11 +27,11 @@ smina -r proteinH.pdbqt -l ligands3d_gypsum.sdf --autobox_ligand AQD_ligand.pdb 
 ## results
 ROC:
 
-![roc]('./figs/rocs.svg')
+![roc](./figs/rocs.svg)
 
 Early enrichment metrics:
 
-![early]('./figs/early_enrichment.png')
+![early](./figs/early_enrichment.png)
 
 
-(Ultra-large library docking for discovering new chemotypes)[https://www.nature.com/articles/s41586-019-0917-9]
+[Ultra-large library docking for discovering new chemotypes](https://www.nature.com/articles/s41586-019-0917-9)
