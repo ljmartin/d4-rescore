@@ -2,8 +2,8 @@
 
 ##### Table of Contents  
 [Intro](#intro)  
-[Results](#results)
-[Method](#method)
+[Results](#results)  
+[Method](#method)  
 
 
 <a name="intro"/>
