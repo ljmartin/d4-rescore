@@ -80,7 +80,7 @@ smina -r proteinH.pdbqt -l ligands3d_gypsum.sdf --autobox_ligand AQD_ligand.pdb 
 
 See `4-rescore_docked_mols.ipynb`, which uses ODDT and the RDKit to re-score all the docked poses, and calculate early-enrichment metrics like Robust Initial Enrichment, log(area under the ROC), BEDROC, and average precision. 
 
-RF-Score-VS is not available via ODDT, but it _is_ available as a binary from [here](https://github.com/oddt/rfscorevs_binary)
+RF-Score-VS is not available via ODDT, but it _is_ available as a binary from [here](https://github.com/oddt/rfscorevs_binary).
 
 re-scoring command for RF-Score-VS is:
 ```
